@@ -84,6 +84,30 @@ function entry(w,h,def){
   Object.assign(o.ctx,o.penstock[name])
   return o.ctx
  }
+ function flip(canvas){
+  if(!canvas)return o.ctx
+  ;
+  let vctx=canvas.getContext('2d')
+  vctx.drawImage(o.ctx.canvas, 0, 0)
+  ;
+  return o.ctx
+ }
+ function clearbox(color){
+  return o.box(0,0,o.ctx.width,o.ctx.height,color)
+ }
+  
+ man() //help to console.log
+* makepen()
+* pen()
+ box()
+ borderbox()
+ text()
+ text2()
+ image()
+ line()
+ polyline()
+* flip()
+* clearbox()
 ////
 }
 
