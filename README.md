@@ -34,7 +34,7 @@ $ctx
  .box(0,0,320,240)
  .borderbox(0,0,320,240,'yellow')
  .text('aaabbbccc',x,y,320,'red')
- .text2() //multiline
+ .text2('aaa\nbbb\nccc\n',x,y,320,1.3,'red') //multiline
  .image(new Image(),0,0,320,240)
  .line(0,100,100,100,'brown')
  .polyline([x,y,x1,y1,x2,y2...],'red')
@@ -115,6 +115,24 @@ function entry(w,h,def){
   o.ctx.strokeRect(x-lw/2,y-lw/2,w-lw,h-lw)
   o.ctx.strokeStyle=wk
   return o
+ }
+ function text(t,x,y,w,color){
+  let wk=o.ctx.fillStyle
+  o.ctx.fillStyle=color||wk 
+  o.ctx.fillText(d,x,y,w)
+  o.ctx.fillStyle=wk 
+  return o
+ }
+ 
+ function text2(t,x,y,w,color){
+  let wk=o.ctx.fillStyle
+  o.ctx.fillStyle=color||wk 
+ let len= parseInt(o.ctx.font)
+ ;(t+'').split('\n').map((d,i)=>o.ctx.fillText(d,x,y+i*len,w))
+  o.ctx.fillStyle=wk 
+ return o
+}
+ 
  }
   
  man() //help to console.log
