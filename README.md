@@ -8,8 +8,8 @@ let $ctx=ctxpen(320,240)
 ;
 //$ctx.ctx //original 
 //$ctx.xxx(a,b,c,color) //basic
-//$ctx.man() //help to console.log
 /*
+ man() //help to console.log
  makepen()
  pen()
  box()
@@ -23,6 +23,8 @@ let $ctx=ctxpen(320,240)
  clearbox()
  pen()
 */
+
+$ctx.man();
 $ctx
  .makepen('default',{})
  .makepen('penblack',{lineWidth:2,...})
