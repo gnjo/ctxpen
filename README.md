@@ -4,7 +4,7 @@ ctx simple wrapping
 ```
 //interface and sample
 let viewcanvas=document.querySelector('canvas')
-let defpen={font:"12px boxdrawing,monospace",textAlign:"left",textBaseline:"top",strokeStyle:"white",lineWidth:2}
+let defpen={font:"12px boxdrawing,monospace",textAlign:"left",textBaseline:"top",fillStyle:"black",strokeStyle:"white",lineWidth:2}
 let $ctx=ctxpen(320,240,defpen)
 })
 ;
