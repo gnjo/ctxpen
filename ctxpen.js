@@ -18,12 +18,14 @@
   o.h=o.canvas.height=h||240
   o.ctx=o.canvas.getContext('2d')
   o.vctx=void 0
+  o.fontsize=16
   ;
   let wk={}
   props.map(d=> wk[d]=o.ctx[d] )
   o.penstock={};
   o.penstock['default']=Object.assign({},wk,defpen,def)
-  Object.assign(o.ctx,o.penstock['default']) 
+  Object.assign(o.ctx,o.penstock['default'])
+  o.fontsize=parseInt(o.ctx.font)
   ;
   o.makepen=function makepen(name,obj){
    let d=o.penstock['default']
@@ -34,6 +36,7 @@
    if(!name) name='default'
    if(!o.penstock[name]) name='default'
    Object.assign(o.ctx,o.penstock[name])
+   o.fontsize=parseInt(o.ctx.font)   
    return o
   }
   o.flip=function flip(canvas){
