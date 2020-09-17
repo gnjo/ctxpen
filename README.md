@@ -4,7 +4,9 @@ ctx simple wrapping
 ```
 //interface and sample
 let viewcanvas=document.querySelector('canvas')
-let $ctx=ctxpen(320,240)
+let defpen={font:"12px boxdrawing,monospace",textAlign:"left",textBaseline:"top",strokeStyle:"white",lineWidth:2}
+let $ctx=ctxpen(320,240,defpen)
+})
 ;
 //$ctx.ctx //original 
 //$ctx.xxx(a,b,c,color) //basic
