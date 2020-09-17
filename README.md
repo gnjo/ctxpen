@@ -54,3 +54,43 @@ $ctx.borderpath('M10 10 h 80 v 80 h -80 Z','blue')
 
 var p = new Path2D('M10 10 h 80 v 80 h -80 Z');
 ```
+
+```
+ var props = [/*'canvas', */'fillStyle', 'font', 'globalAlpha', 'globalCompositeOperation',
+    'lineCap', 'lineJoin', 'lineWidth', 'miterLimit', 'shadowOffsetX', 'shadowOffsetY',
+    'shadowBlur', 'shadowColor', 'strokeStyle', 'textAlign', 'textBaseline']
+  ;
+ let is={}
+ is.string()
+function entry(w,h,def){
+ let o={}
+ o.ctx =document.createElement('canvas')
+ o.ctx.width=w||320
+ o.ctx.height=h||240
+ ;
+ let wk={}
+ props.map(d=> wk[d]=o.ctx[d] )
+ o.penstock={};
+ o.penstock['default']=Object.assign({},wk,def)
+ ;
+ function makepen(name,obj){
+ let d=o.penstock['default']
+ o.penstock[name] = Object.assign({},d,obj)
+ return o.ctx
+ }
+ function pen(name){
+  if(!name) name='default'
+  if(!o.penstock[name]) name='default'
+  Object.assign(o.ctx,o.penstock[name])
+  return o.ctx
+ }
+////
+}
+
+```
+
+
+
+
+
+
