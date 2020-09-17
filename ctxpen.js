@@ -63,6 +63,13 @@
    o.ctx.drawImage.apply(o.ctx, arg);
    return o
   }
+  o.imagebox=function imagebox(img,x,y,w,h){
+   let nw=img.naturalWidth,nh=img.naturalHeight
+   let min=Math.min(w/nw,h/nh)
+   o.ctx.drawImage(img,x,y,nw*min,nh*min)
+   return o
+ }
+
   o.borderbox=function borderbox(x,y,w,h,color){
    let wk=o.ctx.strokeStyle,lw=o.ctx.lineWidth
    o.ctx.strokeStyle=color||wk
