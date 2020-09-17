@@ -1,0 +1,15 @@
+ @font-face {
+ font-family: misaki;
+ src: url("https://gnjo.github.io/ctxpen/misaki.ttf") format("truetype");
+ font-weight: normal;
+ font-style: monospace;
+ }
+/*
+let defpen={font:"12px misaki,monospace",textAlign:"left",textBaseline:"top",fillStyle:"white",strokeStyle:"white",lineWidth:2}
+;
+canvas{
+ transform:scale(2.0);
+ transform-origin: 0 0; 
+ image-rendering: pixelated;
+}
+*/
