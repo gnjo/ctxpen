@@ -2,8 +2,12 @@
 
  var props = [/*'canvas', */'fillStyle', 'font', 'globalAlpha', 'globalCompositeOperation',
               'lineCap', 'lineJoin', 'lineWidth', 'miterLimit', 'shadowOffsetX', 'shadowOffsetY',
-              'shadowBlur', 'shadowColor', 'strokeStyle', 'textAlign', 'textBaseline']
+              'shadowBlur', 'shadowColor', 'strokeStyle', 'textAlign', 'textBaseline',
+              'lineHeight'/*special*/]
  ;
+ var defpen={font:"12px misaki,monospace",textAlign:"left",textBaseline:"top",fillStyle:"white",strokeStyle:"white",lineWidth:2,lineHeight:1.0}
+;
+
  let is={}
  is.string = function(obj){return toString.call(obj) === '[object String]'} 
  ;
@@ -18,7 +22,7 @@
   let wk={}
   props.map(d=> wk[d]=o.ctx[d] )
   o.penstock={};
-  o.penstock['default']=Object.assign({},wk,def)
+  o.penstock['default']=Object.assign({},wk,defpen,def)
   Object.assign(o.ctx,o.penstock['default']) 
   ;
   o.makepen=function makepen(name,obj){
@@ -79,7 +83,7 @@
   o.text2=function text2(t,x,y,w,color){
    let wk=o.ctx.fillStyle
    o.ctx.fillStyle=color||wk 
-   let len= parseInt(o.ctx.font)
+   let len= parseInt(o.ctx.font) * o.ctx.lineHeight
    ;(t+'').split('\n').map((d,i)=>o.ctx.fillText(d,x,y+i*len,w))
    o.ctx.fillStyle=wk 
    return o
