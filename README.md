@@ -8,6 +8,7 @@ let $ctx=ctxpen(320,240)
 ;
 //$ctx.ctx //original 
 //$ctx.xxx(a,b,c,color) //basic
+//$ctx.man() //help to console.log
 /*
  makepen()
  pen()
