@@ -39,4 +39,13 @@ $ctx
  .flip(viewcanvas)
  .clearbox('black')
  .pen() //'default'
+;
+$ctx.path('M20 20 h 80 v 80 h -80 Z','yellow')
+$ctx.borderpath('M10 10 h 80 v 80 h -80 Z','blue')
+```
+
+```
+パスはある点に移動して (M10 10) 、そこから右へ水平に 80 ポイント移動 (h 80)、下へ 80 ポイント移動 (v 80) 、80ポイント 左へ移動 (h -80) 、そして始点へ戻ります (z)。この例は Path2D コンストラクタのページで確認できます。
+
+var p = new Path2D('M10 10 h 80 v 80 h -80 Z');
 ```
