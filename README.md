@@ -78,13 +78,13 @@ function entry(w,h,def){
  function makepen(name,obj){
  let d=o.penstock['default']
  o.penstock[name] = Object.assign({},d,obj)
- return o.ctx
+ return o
  }
  function pen(name){
   if(!name) name='default'
   if(!o.penstock[name]) name='default'
   Object.assign(o.ctx,o.penstock[name])
-  return o.ctx
+  return o
  }
  function flip(canvas){
   if(!canvas)return o.ctx
@@ -92,20 +92,39 @@ function entry(w,h,def){
   let vctx=canvas.getContext('2d')
   vctx.drawImage(o.ctx.canvas, 0, 0)
   ;
-  return o.ctx
+  return o
  }
  function clearbox(color){
   return o.box(0,0,o.ctx.width,o.ctx.height,color)
+ }
+ function image(...arg){
+  o.ctx.drawImage.apply(o.ctx, arg);
+  return o
+ }
+ function box(x,y,w,h,color){
+  let wk=o.ctx.fillStyle
+  o.ctx.fillStyle=color||wk
+  o.ctx.fillRect(x,y,w,h)
+  o.ctx.fillStyle=wk
+  return o
+ }
+ 
+ function borderbox(x,y,w,h,color){
+  let wk=o.ctx.strokeStyle,lw=o.ctx.lineWidth
+  o.ctx.strokeStyle=color||wk
+  o.ctx.strokeRect(x-lw/2,y-lw/2,w-lw,h-lw)
+  o.ctx.strokeStyle=wk
+  return o
  }
   
  man() //help to console.log
 * makepen()
 * pen()
- box()
- borderbox()
+* box()
+* borderbox()
  text()
  text2()
- image()
+*image()
  line()
  polyline()
 * flip()
